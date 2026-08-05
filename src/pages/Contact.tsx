@@ -9,23 +9,34 @@ const METHODS: { id: ContactMethod; label: string; placeholder: string }[] = [
   { id: 'note', label: 'Leave a Note', placeholder: 'Where should I look for it?' },
 ]
 
-type VerifyState = 'idle' | 'checking' | 'verified'
+const FAIL_LINES = [
+  'Bad call. The temperature just dropped ten degrees.',
+  'You felt that draft, right? That wasn’t the weather.',
+  'That is exactly what a Red Court thrall would say yes to.',
+  'The smile got wider. That’s your cue to reconsider.',
+]
 
 export default function Contact() {
   const [submitted, setSubmitted] = useState(false)
   const [method, setMethod] = useState<ContactMethod>('service')
-  const [verify, setVerify] = useState<VerifyState>('idle')
+  const [verified, setVerified] = useState(false)
+  const [swapped, setSwapped] = useState(false)
+  const [failLine, setFailLine] = useState<string | null>(null)
   const activeMethod = METHODS.find((m) => m.id === method)!
 
-  function handleVerify() {
-    if (verify !== 'idle') return
-    setVerify('checking')
-    setTimeout(() => setVerify('verified'), 650)
+  function handleWrongAnswer() {
+    setFailLine(FAIL_LINES[Math.floor(Math.random() * FAIL_LINES.length)])
+    setSwapped((s) => !s)
+  }
+
+  function handleCorrectAnswer() {
+    setFailLine(null)
+    setVerified(true)
   }
 
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
-    if (verify !== 'verified') return
+    if (!verified) return
     setSubmitted(true)
   }
 
@@ -81,12 +92,16 @@ export default function Contact() {
           </div>
         </div>
 
-        <div className="border border-gothic-accent/25 bg-gothic-mist/30 p-8">
+        {/* The form itself is a physical sheet of paper — cream stock, a slight
+            resting tilt, a real drop shadow — not a glass panel. */}
+        <div className="relative -rotate-1 bg-[#f2ead6] p-8 shadow-2xl">
+          <div className="absolute -top-2 left-10 h-4 w-16 -rotate-3 bg-dossier-amber/50" />
+
           {submitted ? (
             <div className="flex h-full flex-col items-center justify-center py-12 text-center">
               <MethodIcon id={method} active large />
               <div className="case-label mt-4 text-gothic-accent">Message Received</div>
-              <p className="mt-3 max-w-sm text-dossier-paper-dim">
+              <p className="mt-3 max-w-sm text-dossier-ink/70">
                 {method === 'raven' && 'The window’s open. She knows the way.'}
                 {method === 'service' && 'The service will pass it along the next time I check in.'}
                 {method === 'note' && 'Found it. I’ll leave word the same way.'}
@@ -97,7 +112,7 @@ export default function Contact() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               <div>
-                <label htmlFor="name" className="case-label text-dossier-paper-dim/70">
+                <label htmlFor="name" className="case-label text-dossier-ink/50">
                   Name
                 </label>
                 <input
@@ -105,11 +120,11 @@ export default function Contact() {
                   name="name"
                   type="text"
                   required
-                  className="mt-2 w-full border border-dossier-rule/50 bg-transparent px-3 py-2.5 text-dossier-paper outline-none transition-colors focus:border-gothic-accent"
+                  className="mt-2 w-full border border-dossier-ink/20 bg-transparent px-3 py-2.5 text-dossier-ink outline-none transition-colors focus:border-gothic-accent"
                 />
               </div>
               <div>
-                <div className="case-label text-dossier-paper-dim/70">How Should the Answer Reach You?</div>
+                <div className="case-label text-dossier-ink/50">How Should the Answer Reach You?</div>
                 <div className="mt-2 grid grid-cols-3 gap-2">
                   {METHODS.map((m) => {
                     const active = m.id === method
@@ -122,7 +137,7 @@ export default function Contact() {
                         className={`flex flex-col items-center gap-1.5 border px-2 py-3 text-center transition-all duration-200 ${
                           active
                             ? 'border-gothic-accent bg-gothic-accent/10 text-gothic-accent shadow-[0_0_12px_-2px_var(--color-gothic-accent)]'
-                            : 'border-dossier-rule/40 text-dossier-paper-dim/70 hover:border-dossier-rule hover:text-dossier-paper-dim'
+                            : 'border-dossier-ink/15 text-dossier-ink/45 hover:border-dossier-ink/30 hover:text-dossier-ink/70'
                         }`}
                       >
                         <MethodIcon id={m.id} active={active} />
@@ -139,11 +154,11 @@ export default function Contact() {
                   type="text"
                   required
                   placeholder={activeMethod.placeholder}
-                  className="mt-3 w-full border border-dossier-rule/50 bg-transparent px-3 py-2.5 text-dossier-paper outline-none transition-colors placeholder:text-dossier-paper-dim/40 focus:border-gothic-accent"
+                  className="mt-3 w-full border border-dossier-ink/20 bg-transparent px-3 py-2.5 text-dossier-ink outline-none transition-colors placeholder:text-dossier-ink/35 focus:border-gothic-accent"
                 />
               </div>
               <div>
-                <label htmlFor="situation" className="case-label text-dossier-paper-dim/70">
+                <label htmlFor="situation" className="case-label text-dossier-ink/50">
                   What&rsquo;s going on?
                 </label>
                 <textarea
@@ -151,45 +166,55 @@ export default function Contact() {
                   name="situation"
                   required
                   rows={5}
-                  className="mt-2 w-full border border-dossier-rule/50 bg-transparent px-3 py-2.5 text-dossier-paper outline-none transition-colors focus:border-gothic-accent"
+                  className="mt-2 w-full border border-dossier-ink/20 bg-transparent px-3 py-2.5 text-dossier-ink outline-none transition-colors focus:border-gothic-accent"
                 />
               </div>
+
               <div>
-                <div className="case-label text-dossier-paper-dim/70">One More Thing</div>
-                <button
-                  type="button"
-                  onClick={handleVerify}
-                  disabled={verify !== 'idle'}
-                  className={`mt-2 flex w-full items-center justify-between border px-4 py-3 text-left transition-all duration-300 ${
-                    verify === 'verified'
-                      ? 'border-gothic-accent bg-gothic-accent/10'
-                      : 'border-dossier-rule/50 hover:border-gothic-accent/60'
-                  }`}
-                >
-                  <span className="text-sm text-dossier-paper">
-                    {verify === 'idle' && 'Touch the garlic to prove you’re not Red Court.'}
-                    {verify === 'checking' && 'Checking for hissing, smoke, or sudden regret…'}
-                    {verify === 'verified' && 'Confirmed: not Red Court. Probably.'}
-                  </span>
-                  <span
-                    className={`ml-3 shrink-0 transition-transform duration-300 ${
-                      verify === 'checking' ? 'animate-pulse' : ''
-                    } ${verify === 'verified' ? 'scale-110' : ''}`}
-                  >
-                    {verify === 'verified' ? (
-                      <svg className="h-6 w-6 text-gothic-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M5 12.5 9.5 17 19 7" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    ) : (
-                      <GarlicIcon />
+                <div className="case-label text-dossier-ink/50">One More Thing</div>
+                {verified ? (
+                  <div className="mt-2 flex items-center gap-3 border border-gothic-accent bg-gothic-accent/10 px-4 py-3">
+                    <svg className="h-6 w-6 shrink-0 text-gothic-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                      <path d="M5 12.5 9.5 17 19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <span className="text-sm text-dossier-ink">Confirmed: not Red Court. Probably.</span>
+                  </div>
+                ) : (
+                  <div className="mt-2 border border-dossier-ink/15 bg-dossier-ink/[0.03] p-4">
+                    <p className="text-sm text-dossier-ink/75">
+                      Someone&rsquo;s at the door, smiling a little too wide.
+                      <br />
+                      &ldquo;Won&rsquo;t you invite me in?&rdquo;
+                    </p>
+                    {failLine && (
+                      <p className="mt-2 font-case text-xs uppercase tracking-wide text-string-red">
+                        {failLine}
+                      </p>
                     )}
-                  </span>
-                </button>
+                    <div className={`mt-3 flex gap-3 ${swapped ? 'flex-row-reverse' : ''}`}>
+                      <button
+                        type="button"
+                        onClick={handleWrongAnswer}
+                        className="flex-1 rounded-sm bg-gothic-accent px-4 py-2.5 font-case text-xs uppercase tracking-wide text-dossier-ink shadow-md transition-transform hover:scale-[1.02]"
+                      >
+                        Sure, come on in
+                      </button>
+                      <button
+                        type="button"
+                        onClick={handleCorrectAnswer}
+                        className="flex-1 border border-dossier-ink/20 px-4 py-2.5 font-case text-xs uppercase tracking-wide text-dossier-ink/55 transition-colors hover:border-dossier-ink/40 hover:text-dossier-ink"
+                      >
+                        Not a chance.
+                      </button>
+                    </div>
+                  </div>
+                )}
               </div>
+
               <button
                 type="submit"
-                disabled={verify !== 'verified'}
-                className="w-full rounded-sm bg-gothic-accent px-6 py-3 font-case text-sm uppercase tracking-wide text-dossier-ink transition-all hover:bg-dossier-paper disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-gothic-accent"
+                disabled={!verified}
+                className="w-full rounded-sm bg-gothic-accent px-6 py-3 font-case text-sm uppercase tracking-wide text-dossier-ink transition-all hover:bg-gothic-mist disabled:cursor-not-allowed disabled:opacity-30 disabled:hover:bg-gothic-accent"
               >
                 Send
               </button>
@@ -203,7 +228,7 @@ export default function Contact() {
 
 function MethodIcon({ id, active, large }: { id: ContactMethod; active: boolean; large?: boolean }) {
   const size = large ? 'h-10 w-10' : 'h-5 w-5'
-  const color = active ? 'text-gothic-accent' : 'text-dossier-paper-dim/70'
+  const color = active ? 'text-gothic-accent' : 'text-dossier-ink/40'
 
   if (id === 'raven') {
     return (
@@ -232,19 +257,6 @@ function MethodIcon({ id, active, large }: { id: ContactMethod; active: boolean;
     <svg className={`${size} ${color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
       <path d="M5 4h14v13l-4 3-3-2-3 2-4-3Z" strokeLinejoin="round" />
       <path d="M8 8h8M8 11.5h5" strokeLinecap="round" />
-    </svg>
-  )
-}
-
-function GarlicIcon() {
-  return (
-    <svg className="h-6 w-6 text-dossier-paper-dim" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-      <path d="M12 3c1 1.4 1 2.6 0 4" strokeLinecap="round" />
-      <path
-        d="M12 7c4 0 6.5 3.4 6.5 7.5S16.5 21 12 21s-6.5-2.9-6.5-6.5S8 7 12 7Z"
-        strokeLinejoin="round"
-      />
-      <path d="M12 7v14M9 9.5c-1 1.6-1.3 3.6-1 5.5M15 9.5c1 1.6 1.3 3.6 1 5.5" strokeLinecap="round" />
     </svg>
   )
 }

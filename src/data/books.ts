@@ -121,7 +121,7 @@ export const CASE_FILES: CaseFile[] = [
       'The blackmailer\'s hold over Harry involves ██████.',
       'One ally\'s true loyalties come out here — ██████.',
     ],
-    photo: 1,
+    photo: 7,
   },
   {
     id: 'proven-guilty',
@@ -137,7 +137,7 @@ export const CASE_FILES: CaseFile[] = [
       'A character introduced here becomes central later — their significance is ██████.',
       'The old debt that gets called in: ██████.',
     ],
-    photo: 2,
+    photo: 8,
   },
   {
     id: 'white-night',
@@ -153,7 +153,7 @@ export const CASE_FILES: CaseFile[] = [
       'A long-running mystery about a family member resolves here: ██████.',
       'The Council fallout from this case: ██████.',
     ],
-    photo: 3,
+    photo: 9,
   },
   {
     id: 'small-favor',
@@ -169,7 +169,7 @@ export const CASE_FILES: CaseFile[] = [
       'Which Fallen angel resurfaces, and why: ██████.',
       'The bargain Harry strikes at the end: ██████, terms sealed.',
     ],
-    photo: 4,
+    photo: 10,
   },
   {
     id: 'turn-coat',
@@ -185,7 +185,7 @@ export const CASE_FILES: CaseFile[] = [
       'What this reveals about Council leadership: ██████.',
       'A relationship shifts permanently by the end — ██████.',
     ],
-    photo: 5,
+    photo: 11,
   },
   {
     id: 'changes',
@@ -201,7 +201,7 @@ export const CASE_FILES: CaseFile[] = [
       'What Harry loses by the final chapter: ██████.',
       'The state in which this case leaves him: ██████.',
     ],
-    photo: 6,
+    photo: 12,
   },
   {
     id: 'ghost-story',
@@ -217,7 +217,7 @@ export const CASE_FILES: CaseFile[] = [
       'How the case resolves: ██████.',
       'What changes about the rules of engagement afterward: ██████.',
     ],
-    photo: 1,
+    photo: 13,
   },
   {
     id: 'cold-days',
@@ -233,7 +233,7 @@ export const CASE_FILES: CaseFile[] = [
       'Whether the order is carried out: ██████.',
       'What Harry discovers about his new position: ██████.',
     ],
-    photo: 2,
+    photo: 14,
   },
   {
     id: 'skin-game',
@@ -249,7 +249,7 @@ export const CASE_FILES: CaseFile[] = [
       'Who on the crew doesn\'t make it out: ██████.',
       'The double-cross, and who runs it: ██████.',
     ],
-    photo: 3,
+    photo: 15,
   },
   {
     id: 'peace-talks',
@@ -265,7 +265,7 @@ export const CASE_FILES: CaseFile[] = [
       'The family conflict at the center of it: ██████.',
       'This file runs directly into the next — the connecting event is ██████.',
     ],
-    photo: 4,
+    photo: 16,
   },
   {
     id: 'battle-ground',
@@ -281,6 +281,6 @@ export const CASE_FILES: CaseFile[] = [
       'Casualty list: ██████████████.',
       'What Chicago looks like when the file closes: ██████.',
     ],
-    photo: 5,
+    photo: 17,
   },
 ]
