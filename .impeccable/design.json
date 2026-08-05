@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-05T09:00:00Z",
+  "title": "Design System: Harry Dresden — Wizard for Hire",
+  "extensions": {
+    "colorMeta": {
+      "dossier-amber": { "role": "primary", "displayName": "Dossier Amber", "canonical": "#c9a876", "tonalRamp": ["#241d12", "#3d301e", "#57452a", "#7a6539", "#a0854e", "#c9a876", "#e8b563", "#f5dcb0"] },
+      "dossier-ink": { "role": "neutral", "displayName": "Dossier Ink", "canonical": "#0d0c0f", "tonalRamp": ["#0d0c0f", "#19171b", "#2a2730", "#443c33", "#63594a", "#8a7c66", "#b3a488", "#d9cdae"] },
+      "dossier-paper": { "role": "neutral", "displayName": "Dossier Paper", "canonical": "#efe6d4", "tonalRamp": ["#443c33", "#63594a", "#8a7c66", "#a99a7c", "#c3b494", "#d9cdae", "#e6dcc4", "#efe6d4"] },
+      "neon-accent": { "role": "primary", "displayName": "Neon Threshold Magenta", "canonical": "#d94fd0", "tonalRamp": ["#3a1237", "#5c1e57", "#7f2a78", "#a3369a", "#c542bc", "#d94fd0", "#e57ade", "#f0a8eb"] },
+      "hardboiled-paper": { "role": "neutral", "displayName": "Hardboiled Paper", "canonical": "#e5e0d3", "tonalRamp": ["#101010", "#2c2c2c", "#4a4a4a", "#6b6b6b", "#8f8f8f", "#b5b0a3", "#cfcabb", "#e5e0d3"] },
+      "grimoire-accent": { "role": "primary", "displayName": "Grimoire Candlelight", "canonical": "#e8b563", "tonalRamp": ["#1c130a", "#3d2914", "#5c3d1e", "#7d542a", "#a06f38", "#c48f4c", "#e8b563", "#f5d6a0"] },
+      "gothic-accent": { "role": "primary", "displayName": "Gothic Indigo", "canonical": "#6a5acd", "tonalRamp": ["#0b0a17", "#161234", "#241f4a", "#372e6a", "#4c3f8f", "#6a5acd", "#8f80dd", "#b8adeb"] },
+      "string-red": { "role": "secondary", "displayName": "Detective String Red", "canonical": "#b3231c", "tonalRamp": ["#2c0906", "#4a0f0a", "#6d1611", "#8f1c16", "#b3231c", "#d0392f", "#e2685f", "#f0a49d"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page hero H1 only, one per page, bottom-anchored in the hero." },
+      "body": { "displayName": "Body Serif", "purpose": "All paragraph copy, in-universe voice, max ~65ch." },
+      "label": { "displayName": "Case Label", "purpose": "Nav items, eyebrows, footer categories, case ref numbers, redaction tags — never paragraph copy." },
+      "micro-label": { "displayName": "Micro Label", "purpose": "One size down from Case Label (0.65rem) for secondary chrome metadata: folder status lines, pinned-card status lines." },
+      "board-body": { "displayName": "Board Body", "purpose": "0.95rem tightened body step used only in the detective board's fixed-width case-summary card." }
+    },
+    "shadows": [
+      { "name": "physical-card", "value": "0 25px 50px -12px rgba(0,0,0,0.5)", "purpose": "Pinned board notes and polaroids — simulates a real object resting on/pinned to a surface." },
+      { "name": "folder-stack", "value": "0 20px 25px -5px rgba(0,0,0,0.35)", "purpose": "Manila folder body and photo stack on the Case Files desk." },
+      { "name": "pin-drop", "value": "0 2px 3px rgba(0,0,0,0.5)", "purpose": "The small red pin marker on every board card and polaroid." },
+      { "name": "ground-scrim", "value": "linear-gradient(rgba(ground, 0.55), rgba(ground, 0.75))", "purpose": "Two-stop gradient over every hero photo, keyed to that world's own ground color rather than neutral black, for text legibility." }
+    ],
+    "motion": [
+      { "name": "ease-settle", "value": "cubic-bezier(0.22, 1, 0.36, 1)", "purpose": "Default motion for anything settling into place — folder rest state, board card flight. Deliberately not an overshoot/bounce curve." },
+      { "name": "ease-shoo", "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Other case folders scattering off-screen when one is opened." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "lg", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Amber-filled call to action, used across every world (e.g. \"See services\", \"Open a case\").",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">See services</a>",
+      "css": ".ds-btn-primary { display: inline-block; background: #c9a876; color: #0d0c0f; font-family: 'Special Elite', 'Courier New', monospace; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 24px; border-radius: 2px; transition: background 0.2s ease; } .ds-btn-primary:hover { background: #efe6d4; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Outline button used for secondary actions; hover shifts to the current page world's accent color rather than amber.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Get in touch</a>",
+      "css": ".ds-btn-ghost { display: inline-block; background: transparent; color: #efe6d4; font-family: 'Special Elite', 'Courier New', monospace; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 12px 24px; border-radius: 2px; border: 1px solid rgba(239,230,212,0.3); transition: border-color 0.2s ease, color 0.2s ease; } .ds-btn-ghost:hover { border-color: #d94fd0; color: #d94fd0; }"
+    },
+    {
+      "name": "Case Label",
+      "kind": "custom",
+      "refersTo": "case-label",
+      "description": "The recurring typewriter eyebrow/tag used for nav items, section eyebrows, footer categories, and redaction tags.",
+      "html": "<span class=\"ds-case-label\">Ref. 001 &middot; Case Summary</span>",
+      "css": ".ds-case-label { font-family: 'Special Elite', 'Courier New', monospace; letter-spacing: 0.14em; text-transform: uppercase; font-size: 0.72rem; color: #c9a876; }"
+    },
+    {
+      "name": "Pinned Note Card",
+      "kind": "card",
+      "refersTo": "pinned-note",
+      "description": "Detective-board card: paper-colored, sharp corners, a red circular pin at the top edge, deep drop shadow to read as a physical object.",
+      "html": "<div class=\"ds-pinned-note\"><span class=\"ds-pin\"></span><div class=\"ds-case-label\">Case Summary</div><p>A simple infidelity case gets complicated fast&hellip;</p></div>",
+      "css": ".ds-pinned-note { position: relative; background: #f2ead6; padding: 16px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); color: #1c130a; } .ds-pin { position: absolute; top: -8px; left: 50%; transform: translateX(-50%); width: 16px; height: 16px; border-radius: 9999px; background: #b3231c; box-shadow: 0 2px 3px rgba(0,0,0,0.5); }"
+    },
+    {
+      "name": "Manila Case Folder",
+      "kind": "custom",
+      "refersTo": "case-folder",
+      "description": "Signature component: fanned paper sheets, a manila folder body with tab, and a paperclipped polaroid pinned to the front cover. Rest state carries a small deterministic rotation; hover fans the papers and lifts the photo.",
+      "html": "<div class=\"ds-case-folder\"><div class=\"ds-folder-body\"><div class=\"ds-folder-tab\"></div><div class=\"ds-folder-label\">No. 01 &middot; Storm Front</div></div><div class=\"ds-folder-photo\"></div></div>",
+      "css": ".ds-case-folder { position: relative; width: 220px; aspect-ratio: 4/3; transform: rotate(-3deg); } .ds-folder-body { position: absolute; inset: 22% 0 0 0; background: linear-gradient(180deg, #d9bd85 0%, #c2a36a 100%); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.35); } .ds-folder-tab { position: absolute; top: -16px; left: 16px; width: 96px; height: 16px; background: #d9bd85; } .ds-folder-label { position: absolute; bottom: 12px; left: 12px; right: 12px; font-family: 'Big Shoulders Display', sans-serif; font-weight: 700; color: #0d0c0f; } .ds-folder-photo { position: absolute; top: -28px; left: 50%; transform: translateX(-50%) rotate(4deg); width: 80px; height: 96px; background: #fff; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Case File Made Public",
+    "overview": "This site is staged as Harry Dresden's actual business site — the modern web presence for the wizard-detective from Jim Butcher's Dresden Files, run in-universe. The governing idea is that Harry's whole world lives across four distinct visual \"cases,\" one per section, each its own atmosphere, held together by a single recurring artifact: the paper case file. Nav, footer, buttons, and labels are dressed as dossier chrome — typewriter labels, amber rule lines, parchment tones — so a visitor always knows which drawer of Harry's practice they've opened even as the backdrop shifts from neon-lit street to black-and-white detective office to candlelit study to gothic threshold to a literal green-felt case-file desk.",
+    "keyCharacteristics": [
+      "Four fully-committed worlds (Neon Threshold, Classic Hardboiled, The Grimoire, Gothic Threshold) plus a fifth interactive world (The Case Board) — not four color reskins of one layout, but four distinct atmospheres",
+      "Dossier chrome (nav, footer, buttons, labels) stays visually constant across every world as the connective thread",
+      "Typewriter/case-file motifs (redaction bars, case numbers, \"Ref.\" tags, pinned photographs) recur as the system's signature device",
+      "Photography-led hero sections: every page opens on a full-bleed generated photographic scene, never a flat color hero"
+    ],
+    "rules": [
+      { "name": "The One Thread Rule", "body": "Dossier amber (#c9a876 / #e8b563) is the only color permitted to cross world boundaries. A new world may introduce its own palette freely, but nav, footer, buttons, and case-labels stay amber-on-dossier-ink regardless of which world's page they sit on.", "section": "colors" },
+      { "name": "The Drenched World Rule", "body": "A page world is not \"dossier chrome plus one accent swapped in\" — it's a full palette commitment (ground, accent, accent-2/mist) applied at page scale via a full-bleed photographic hero, gradient-faded into the page background of the same ground color.", "section": "colors" },
+      { "name": "The Typewriter-Never-Reads Rule", "body": "Special Elite (the case/label face) is reserved for short administrative strings only — labels, numbers, nav — never body paragraphs. It authenticates the dossier conceit without hurting readability.", "section": "typography" },
+      { "name": "The Physical Object Rule", "body": "Shadows exist only under things that are meant to read as physical objects sitting on or pinned to a surface (case folders, polaroids, pinned note cards) — never as generic card/panel elevation for UI grouping.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep dossier amber (#c9a876 / #e8b563) as the only color permitted on shared chrome (nav, footer, primary buttons, case labels) regardless of which world's page it sits on.",
+      "Do open every page on a full-bleed photographic hero with a bottom-anchored headline, gradient-faded to the page's own ground color.",
+      "Do commit each page world fully (ground + accent + accent-2/mist) rather than blending worlds or introducing a shared \"brand\" hue beyond amber.",
+      "Do reserve Special Elite (typewriter face) for short administrative/label strings only.",
+      "Do keep corners sharp (rounded-sm at most) everywhere — this is a paper-and-dossier system, not a soft app-UI system."
+    ],
+    "donts": [
+      "Don't introduce a fifth shared accent color beyond dossier amber; per-world accents stay scoped to their own page.",
+      "Don't round any component beyond rounded-sm (2px) — no rounded-lg/rounded-xl/pill shapes anywhere in this system.",
+      "Don't use Special Elite for paragraph body copy; it's a label face only.",
+      "Don't add generic UI drop-shadows to non-physical elements (nav bars, plain content sections); shadows are reserved for things simulating physical paper objects.",
+      "Don't flatten the Case Files page's world-specific interaction (fanned papers, shared-element flight, red string) into a generic modal — it is this system's signature component and should stay distinctive."
+    ]
+  }
+}

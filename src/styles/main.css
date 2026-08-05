@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --font-body: "Source Serif 4", Georgia, serif;
+  --font-case: "Special Elite", "Courier New", monospace;
+
+  /* Shared dossier chrome — the connective tissue across every world */
+  --color-dossier-ink: #0d0c0f;
+  --color-dossier-paper: #efe6d4;
+  --color-dossier-paper-dim: #d9cdae;
+  --color-dossier-amber: #c9a876;
+  --color-dossier-amber-bright: #e8b563;
+  --color-dossier-rule: #443c33;
+
+  /* World: Neon Threshold (Home) */
+  --color-neon-ground: #0a0e12;
+  --color-neon-accent: #d94fd0;
+  --color-neon-accent-2: #6a4fd9;
+  --color-neon-mist: #1a2a33;
+
+  /* World: Classic Hardboiled (Services) */
+  --color-hardboiled-ground: #101010;
+  --color-hardboiled-fog: #2c2c2c;
+  --color-hardboiled-paper: #e5e0d3;
+
+  /* World: The Grimoire (About) */
+  --color-grimoire-ground: #1c130a;
+  --color-grimoire-accent: #e8b563;
+  --color-grimoire-deep: #3d2914;
+
+  /* World: Gothic Threshold (Contact) */
+  --color-gothic-ground: #0b0a17;
+  --color-gothic-accent: #6a5acd;
+  --color-gothic-mist: #241f4a;
+
+  /* World: The Case Board (Projects) */
+  --color-desk-felt: #10261c;
+  --color-desk-felt-dark: #0a1810;
+  --color-manila: #d9bd85;
+  --color-manila-dark: #c2a36a;
+  --color-manila-shadow: #7a6539;
+  --color-string-red: #b3231c;
+  --color-cork: #3b2a1c;
+  --color-cork-dark: #241a11;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background: var(--color-dossier-ink);
+    color: var(--color-dossier-paper);
+    font-family: var(--font-body);
+  }
+
+  h1, h2, h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: var(--color-dossier-amber);
+    color: var(--color-dossier-ink);
+  }
+}
+
+@layer utilities {
+  .font-case {
+    font-family: var(--font-case);
+  }
+
+  .case-label {
+    font-family: var(--font-case);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-size: 0.72rem;
+  }
+}
