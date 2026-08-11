@@ -87,8 +87,8 @@ export default function Contact() {
             </p>
           </div>
           <div className="border-t border-dossier-rule/40 pt-6 font-case text-xs uppercase tracking-wide text-dossier-paper-dim/50">
-            Reasonable rates. No love potions, endless love, or other
-            entertainment.
+            Reasonable rates. No Love Potions, Endless Purses, Parties or
+            Other Entertainment.
           </div>
         </div>
 

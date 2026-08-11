@@ -93,7 +93,7 @@ export default function Home() {
       <section className="border-t border-dossier-rule/40 bg-dossier-ink py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <p className="font-display text-2xl text-dossier-paper sm:text-3xl">
-            &ldquo;If it&rsquo;s in the Yellow Pages under &lsquo;Wizards,&rsquo; there&rsquo;s
+            &ldquo;I&rsquo;m under &lsquo;Wizards,&rsquo; there&rsquo;s
             exactly one listing. That&rsquo;s not an accident.&rdquo;
           </p>
           <p className="case-label mt-6 text-dossier-amber">&mdash; H. Dresden</p>

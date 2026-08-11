@@ -54,8 +54,8 @@ export default function Services() {
           </h1>
           <p className="mt-5 max-w-lg text-hardboiled-paper/75">
             Five things I get hired for, in the order they actually come in.
-            Reasonable rates. No love potions, endless love, or other
-            entertainment.
+            Reasonable rates. No Love Potions, Endless Purses, Parties or
+            Other Entertainment.
           </p>
         </div>
       </section>

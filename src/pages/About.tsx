@@ -83,7 +83,7 @@ export default function About() {
               <dt className="font-case uppercase tracking-wide text-dossier-paper-dim/50">
                 Will not do
               </dt>
-              <dd>Love potions, endless love, other entertainment</dd>
+              <dd>Love Potions, Endless Purses, Parties, Other Entertainment</dd>
             </div>
           </dl>
         </div>

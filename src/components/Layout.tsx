@@ -72,9 +72,9 @@ export default function Layout() {
             <div>
               <div className="case-label text-dossier-amber">Terms</div>
               <p className="mt-2 text-sm text-dossier-paper-dim/80">
-                No love potions, endless love,
+                No Love Potions, Endless Purses,
                 <br />
-                or other entertainment.
+                Parties or Other Entertainment.
               </p>
             </div>
           </div>
