@@ -79,7 +79,8 @@ export default function Layout() {
             </div>
           </div>
           <div className="mt-8 border-t border-dossier-rule/40 pt-6 font-case text-xs tracking-wide text-dossier-paper-dim/50">
-            Est. atmosphere only — a fan-made tribute to Jim Butcher&rsquo;s The Dresden Files.
+            Atmosphere only — a fan-made tribute to Jim Butcher&rsquo;s The Dresden Files.
+            Not affiliated with the author or his publishers.
           </div>
         </div>
       </footer>

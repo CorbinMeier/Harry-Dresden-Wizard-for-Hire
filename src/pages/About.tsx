@@ -27,10 +27,10 @@ export default function About() {
           <p>
             My name is Harry Dresden. Yes — that&rsquo;s a real name, and yes,
             I really do go by &ldquo;wizard&rdquo; on my business card. I&rsquo;m
-            the only listing under that heading in the Chicago phone book, and
-            as far as I know, that&rsquo;s not because I&rsquo;m hiding
-            competition. It&rsquo;s because most people in my line of work
-            would rather you never find out they exist.
+            the only listing under that heading in the Chicago phone book. Not
+            because there&rsquo;s nobody else out there — there is — but
+            because most people in my line of work would rather you never found
+            out they exist.
           </p>
           <p>
             I disagree with that approach. If something in your life doesn&rsquo;t
@@ -65,7 +65,7 @@ export default function About() {
               <dt className="font-case uppercase tracking-wide text-dossier-paper-dim/50">
                 Practice
               </dt>
-              <dd>Independent, since before the Yellow Pages had a website</dd>
+              <dd>Independent, and in the phone book the whole time</dd>
             </div>
             <div className="flex justify-between border-b border-dossier-rule/30 pb-2 sm:justify-start sm:gap-3">
               <dt className="font-case uppercase tracking-wide text-dossier-paper-dim/50">
@@ -98,7 +98,9 @@ export default function About() {
           <p className="mt-4 max-w-2xl text-dossier-paper-dim">
             I do a lot of this alone, but not all of it, and not the parts that
             matter most. These are the people — and the occasional
-            non-people — I actually call when a case goes sideways.
+            non-people — I actually call when a case goes sideways. Filed as
+            of the early case files; nobody in this business stays where the
+            paperwork left them.
           </p>
 
           <div className="mt-12 grid gap-10 sm:grid-cols-2 lg:grid-cols-3">

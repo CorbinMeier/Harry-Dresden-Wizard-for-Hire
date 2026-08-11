@@ -3,7 +3,7 @@ export interface CaseFile {
   number: number
   title: string
   year: number
-  status: 'closed' | 'open' | 'sealed'
+  status: 'closed' | 'sealed'
   intake: string
   summary: string
   redacted: string[]
@@ -19,7 +19,7 @@ export const CASE_FILES: CaseFile[] = [
     status: 'closed',
     intake: 'Missing husband. Turned into a double homicide inside a locked room.',
     summary:
-      'A simple infidelity case gets complicated fast when two people turn up dead with their hearts torn out — no weapon, no forced entry, nothing that fits on a normal incident report. Chicago PD calls the department\'s one and only wizard consultant. He finds out someone is using magic that\'s supposed to be forbidden for a reason.',
+      'A simple infidelity case gets complicated fast when two people turn up dead with their hearts burst outward through their chests — no weapon, no forced entry, nothing that fits on a normal incident report. Chicago PD calls the department\'s one and only wizard consultant. He finds out someone is using magic that\'s supposed to be forbidden for a reason.',
     redacted: [
       'The client\'s real motive was ██████████.',
       'The method involves ██████ and a household object nobody would suspect.',
@@ -35,11 +35,11 @@ export const CASE_FILES: CaseFile[] = [
     status: 'closed',
     intake: 'Mauling deaths during the full moon. Animal attack ruled out by the coroner.',
     summary:
-      'Something is killing people on full-moon nights, and it isn\'t leaving normal tracks. Harry\'s worked werewolf cases before, but this one turns out to involve more than one kind of "wolf," and figuring out which kind is responsible for which body matters more than anyone on the case realizes at first.',
+      'Something is killing people on full-moon nights, and it isn\'t leaving normal tracks. Harry knows the theory better than he ever wanted to, but this is the first time he\'s had to sort it out in the field — and it turns out there is more than one kind of "wolf" in play. Figuring out which kind is responsible for which body matters more than anyone on the case realizes at first.',
     redacted: [
       'There are ██ different varieties of the condition active in the same case.',
-      'One of them is closer to Harry than he\'d like.',
-      'The FBI agent on scene is not entirely what she appears to be — ██████.',
+      'One of them is closer to Harry than he\'d like — ██████.',
+      'The federal agents working the case are not what they appear to be — ██████.',
     ],
     photo: 2,
   },
@@ -54,7 +54,7 @@ export const CASE_FILES: CaseFile[] = [
       'Spirits in Chicago don\'t usually cross certain lines — until suddenly they do, all at once, and someone is stirring them up on purpose. The case drags Harry into vampire politics he\'d been avoiding for years, and forces an alliance he never wanted.',
     redacted: [
       'The instigator\'s identity is ██████ until the final chapters.',
-      'A major character\'s status changes permanently — details sealed.',
+      'A major character\'s status changes permanently — ██████, details sealed.',
       'The vampire court involved is ██████, and their price is ██████.',
     ],
     photo: 3,
@@ -67,7 +67,7 @@ export const CASE_FILES: CaseFile[] = [
     status: 'closed',
     intake: 'Fae politics. A vacant Court position with lethal implications for whoever fills it.',
     summary:
-      'Harry gets pulled into the middle of Winter and Summer Court politics — not by choice, and not because anyone thinks a mortal wizard belongs there. He has three days to solve a murder the Winter Queen didn\'t commit, or the fallout hits the whole city.',
+      'Harry gets pulled into the middle of Winter and Summer Court politics — not by choice, and not because anyone thinks a mortal wizard belongs there. He has until Midsummer to solve a murder the Winter Queen didn\'t commit, and the Council has made the job a condition of him keeping his title.',
     redacted: [
       'The real killer\'s identity connects to ██████ from Harry\'s own past.',
       'What Harry owes the Winter Court after this case is ██████.',
@@ -83,11 +83,11 @@ export const CASE_FILES: CaseFile[] = [
     status: 'closed',
     intake: 'Stolen relic. A duel Harry never agreed to but can\'t refuse.',
     summary:
-      'A rival wizard shows up in Chicago with a formal challenge and an old grudge, at the exact moment a relic tied to a very old story goes missing. Harry has to survive the duel and solve the theft, and the two problems turn out not to be separate at all.',
+      'A vampire warlord shows up in Chicago with a formal challenge and an old grudge, at the exact moment a relic tied to a very old story goes missing. Harry has to survive the duel and solve the theft, and the two problems turn out not to be separate at all.',
     redacted: [
-      'The relic\'s true nature is ██████ — not what the Church believes.',
+      'What the relic is, and who else is hunting it: ██████.',
       'Someone from Harry\'s past returns; the terms of the reunion are ██████.',
-      'The final page changes his family situation — sealed pending case closure.',
+      'What Harry walks away carrying, and where he puts it: ██████.',
     ],
     photo: 5,
   },
@@ -103,7 +103,7 @@ export const CASE_FILES: CaseFile[] = [
     redacted: [
       'The curse\'s caster is ██████, and their reason is almost sympathetic.',
       'A family relation is revealed that changes everything going forward — ██████.',
-      'What happens to Harry\'s apartment this time: ██████.',
+      'What Harry brings home from this job and never gives back: ██████.',
     ],
     photo: 6,
   },
@@ -131,9 +131,9 @@ export const CASE_FILES: CaseFile[] = [
     status: 'closed',
     intake: 'A Council trial. Horror-movie monsters made real, targeting the wrong crowd.',
     summary:
-      'Harry sits as one of the White Council\'s enforcers for the first time — a job he takes no pleasure in — while things that shouldn\'t exist outside a movie screen start attacking people at a horror convention. A promise made years ago comes due.',
+      'Harry attends his first Council proceeding as one of its enforcers — a job he takes no pleasure in and no authority over — while things that shouldn\'t exist outside a movie screen start attacking people at a horror convention. A promise made years ago comes due.',
     redacted: [
-      'The verdict Harry delivers at the trial: ██████.',
+      'How the proceeding ends, and what Harry does about it: ██████.',
       'A character introduced here becomes central later — their significance is ██████.',
       'The old debt that gets called in: ██████.',
     ],
@@ -149,7 +149,7 @@ export const CASE_FILES: CaseFile[] = [
     summary:
       'Low-level magic users around Chicago are dying in ways meant to look self-inflicted, and Harry knows they\'re not. Tracking the pattern puts him uncomfortably close to people he trusts, and the answer is not the one he\'s hoping for.',
     redacted: [
-      'The killer\'s identity connects directly to Harry\'s own household — ██████.',
+      'The killer\'s identity, and who gets framed for the work: ██████.',
       'A long-running mystery about a family member resolves here: ██████.',
       'The Council fallout from this case: ██████.',
     ],

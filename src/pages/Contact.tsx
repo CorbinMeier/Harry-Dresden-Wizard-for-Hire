@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import gothicThreshold from '../assets/worlds/gothic-threshold.webp'
 
-type ContactMethod = 'raven' | 'service' | 'note'
+type ContactMethod = 'courier' | 'service' | 'note'
 
 const METHODS: { id: ContactMethod; label: string; placeholder: string }[] = [
-  { id: 'raven', label: 'By Raven', placeholder: 'Which window should it tap on?' },
+  { id: 'courier', label: 'By Courier', placeholder: 'Where should he find you?' },
   { id: 'service', label: 'Answering Service', placeholder: 'Best number to ring back' },
   { id: 'note', label: 'Leave a Note', placeholder: 'Where should I look for it?' },
 ]
@@ -12,7 +12,7 @@ const METHODS: { id: ContactMethod; label: string; placeholder: string }[] = [
 const FAIL_LINES = [
   'Bad call. The temperature just dropped ten degrees.',
   'You felt that draft, right? That wasn’t the weather.',
-  'That is exactly what a Red Court thrall would say yes to.',
+  'That is exactly what something with too many teeth was hoping you’d say.',
   'The smile got wider. That’s your cue to reconsider.',
 ]
 
@@ -102,11 +102,15 @@ export default function Contact() {
               <MethodIcon id={method} active large />
               <div className="case-label mt-4 text-gothic-accent">Message Received</div>
               <p className="mt-3 max-w-sm text-dossier-ink/70">
-                {method === 'raven' && 'The window’s open. She knows the way.'}
+                {method === 'courier' && 'He’ll find you. He works for pizza, so he’s motivated.'}
                 {method === 'service' && 'The service will pass it along the next time I check in.'}
                 {method === 'note' && 'Found it. I’ll leave word the same way.'}
                 {' '}If this is urgent and it can&rsquo;t wait, call the number in
                 the book instead.
+              </p>
+              <p className="mt-6 max-w-sm font-case text-[0.65rem] uppercase leading-relaxed tracking-wide text-dossier-ink/40">
+                In character only — this is a fan-made page. Nothing you typed
+                was sent, stored, or transmitted anywhere.
               </p>
             </div>
           ) : (
@@ -177,7 +181,7 @@ export default function Contact() {
                     <svg className="h-6 w-6 shrink-0 text-gothic-accent" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                       <path d="M5 12.5 9.5 17 19 7" strokeLinecap="round" strokeLinejoin="round" />
                     </svg>
-                    <span className="text-sm text-dossier-ink">Confirmed: not Red Court. Probably.</span>
+                    <span className="text-sm text-dossier-ink">Confirmed: threshold intact. Probably.</span>
                   </div>
                 ) : (
                   <div className="mt-2 border border-dossier-ink/15 bg-dossier-ink/[0.03] p-4">
@@ -230,14 +234,15 @@ function MethodIcon({ id, active, large }: { id: ContactMethod; active: boolean;
   const size = large ? 'h-10 w-10' : 'h-5 w-5'
   const color = active ? 'text-gothic-accent' : 'text-dossier-ink/40'
 
-  if (id === 'raven') {
+  if (id === 'courier') {
+    // Six inches of winged, pizza-motivated courier
     return (
       <svg className={`${size} ${color}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
-        <path
-          d="M3 14c2-1 3.5-3 4-5 .6 1 1.7 1.6 3 1.6s2.4-.6 3-1.6c.5 2 2 4 4 5-1.6.3-2.8 0-3.8-.8-.3 1.4-1.2 2.6-2.6 3.2l.4 3.6h-2l.4-3.6c-1.4-.6-2.3-1.8-2.6-3.2-1 .8-2.2 1.1-3.8.8Z"
-          strokeLinejoin="round"
-        />
-        <circle cx="12" cy="9.4" r="0.6" fill="currentColor" stroke="none" />
+        <circle cx="12" cy="6.6" r="1.7" />
+        <path d="M12 8.6v7.4" strokeLinecap="round" />
+        <path d="M10.8 10c-2.6-2.6-5.6-2.9-6.6-1.1S5.8 13 9.8 13.6" strokeLinejoin="round" />
+        <path d="M13.2 10c2.6-2.6 5.6-2.9 6.6-1.1S18.2 13 14.2 13.6" strokeLinejoin="round" />
+        <path d="M6.5 18.5 5 20M17.5 18.5 19 20" strokeLinecap="round" />
       </svg>
     )
   }

@@ -24,10 +24,12 @@ Not a reference wiki, fan-fiction hub, or meta fan tribute — it is built and v
 
 ## Operating Context
 
-Site map (confirmed): Home, Services, About, Contact — a standard small-business structure, in-universe.
+Site map (confirmed): Home, Services, Case Files, About, Contact — a standard small-business structure, in-universe.
 - **Home** — general overview of Harry's services, links through to Services. Visual world: Neon Threshold (modern Chicago street, magic as intrusion on the mundane).
 - **Services** — the actual offerings (paranormal investigation, consulting, lost items, etc., per his classic ad). Visual world: Classic Hardboiled (black-and-white 1940s detective-office noir).
-- **About** — who Harry is, in-universe bio/voice. Visual world: The Grimoire (candlelit study, warm sepia, occult).
+- **Case Files** — the casework record, one folder per book, opening onto a pinned evidence board. Visual world: Records Room (desk felt, manila folders, red string). Spoiler control is structural: `intake` and `summary` stay at back-of-book level, and everything past that line lives in `redacted[]`, written as a blacked-out gap rather than as a described reveal. A `redacted` line that still reads as a spoiler when the blocks are removed is a bug.
+  - The `year` field is the **year of record** — the book's publication year, not an in-universe filing date. The books' internal chronology is far more compressed than 2000–2020, so the gaps between file years (notably 15 → 16) are publication gaps and are not to be "corrected" into story time.
+- **About** — who Harry is, in-universe bio/voice. Visual world: The Grimoire (candlelit study, warm sepia, occult). The team roster is explicitly filed as of the early case files, since several members' roles do not survive the later ones.
 - **Contact** — how to reach him. Visual world: Gothic Threshold (indigo gas-lit gate/liminal mist) — assumed fit (a "threshold" reads naturally as a contact/entry page); confirm or reassign when reviewed.
 
 Public-facing pages must be spoiler-free: "back of book" concepts (e.g. werewolves, mirror realities/the Nevernever) can be referenced at the premise level, but specific plot details, character fates, or book-specific reveals must not be included.
@@ -41,7 +43,12 @@ Public-facing pages must be spoiler-free: "back of book" concepts (e.g. werewolv
 
 ## Evidence on Hand
 
-None. No existing copy, art, quotes, or character material has been supplied yet. Future work must not fabricate specific canon details, quotes, or character bios — only reference publicly known, non-spoiler premise elements (noir Chicago wizard-detective setting, established public concepts like werewolves, the Nevernever/mirror realities) at a general level.
+None supplied by the client. Future work must not fabricate specific canon details, quotes, or character bios — only reference publicly known, non-spoiler premise elements (noir Chicago wizard-detective setting, established public concepts like werewolves, the Nevernever/mirror realities) at a general level.
+
+Two rules follow from the 2026-08-11 contextual accuracy audit (issues #2–#32):
+
+- **No invented quotes.** Nothing on the site may be set in quotation marks and attributed to a character or source unless it is a real line from the books. Harry's own site copy is first-person by default — it does not need to be quoted to sound like him.
+- **Checkable details only.** Every named character trait, court, rank, date, and event reference must be verifiable against the books or a canon reference. Where a detail changes across the series (Toot-toot's height, Murphy's job, Michael's active service), the copy must anchor itself in time rather than assert a single present tense.
 
 ## Product Principles
 

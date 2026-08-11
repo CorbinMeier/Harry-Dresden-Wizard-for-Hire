@@ -1,32 +1,50 @@
-# React + TypeScript + Vite
+# Harry Dresden — Wizard for Hire
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A fan-made, in-universe business website for Harry Dresden, the wizard-detective of
+Jim Butcher's *The Dresden Files*. It is staged as the site Harry would actually run
+for his practice — not a wiki about him. Not affiliated with the author or his
+publishers.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+React 19 · Vite 8 · Tailwind CSS v4 · React Router 7 · TypeScript · Oxlint · Vitest
 
-## React Compiler
+## Pages
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Each page carries its own visual "world" while sharing one type system, nav, and footer.
 
-## Expanding the Oxlint configuration
+| Route | Page | World |
+| --- | --- | --- |
+| `/` | Home | Neon Threshold — modern Chicago street, magic intruding on the mundane |
+| `/services` | Services | Classic Hardboiled — 1940s black-and-white detective office |
+| `/case-files` | Case Files | Records Room — folders on desk felt, opening onto a pinned evidence board |
+| `/about` | About | The Grimoire — candlelit study, warm sepia |
+| `/contact` | Contact | Gothic Threshold — indigo gas-lit gate and mist |
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+## Content rules
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+Copy is bound by `PRODUCT.md`. In short: in-universe voice throughout, back-of-book
+spoiler level only, and no fabricated canon — every character detail, date, and event
+reference must be checkable against the books. The Case Files page holds that line with
+its redaction conceit: intake and summary stay at blurb level, and anything past it is
+blacked out rather than described.
+
+Content invariants from the accuracy audit are locked in by `src/data/content.test.ts` —
+run the tests before changing copy in `src/data/` or the page files.
+
+## Commands
+
+```bash
+npm install
+npm run dev      # dev server
+npm run lint     # oxlint
+npm run check    # tsc --noEmit
+npm test         # vitest run
+npm run build    # tsc -b && vite build
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Notes
+
+- Evidence photos and world art live in `src/assets/`; they are imported, not served
+  from `public/`, so Vite fingerprints them.
+- The contact form is a prop. It has no backend and states so on submit.

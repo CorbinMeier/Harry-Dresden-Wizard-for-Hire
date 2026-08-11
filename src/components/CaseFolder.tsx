@@ -112,7 +112,7 @@ export default function CaseFolder({ file, index, isOpen, isSelected, onOpen }: 
             {file.title}
           </div>
           <div className="mt-1 font-case text-[0.65rem] uppercase tracking-wide text-manila-shadow">
-            {file.status === 'sealed' ? 'Sealed' : file.status === 'open' ? 'Open' : 'Closed'} &middot; {file.year}
+            {file.status === 'sealed' ? 'Sealed' : 'Closed'} &middot; {file.year}
           </div>
         </div>
       </div>

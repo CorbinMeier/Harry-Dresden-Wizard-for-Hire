@@ -4,7 +4,7 @@ import CaseFolder from '../components/CaseFolder'
 import DetectiveBoard, { type BoardPhase } from '../components/DetectiveBoard'
 import felt from '../assets/casefiles/felt.webp'
 
-export default function Projects() {
+export default function CaseFiles() {
   const [openId, setOpenId] = useState<string | null>(null)
   const [phase, setPhase] = useState<BoardPhase | 'idle'>('idle')
   const [originRect, setOriginRect] = useState<DOMRect | null>(null)
@@ -52,9 +52,9 @@ export default function Projects() {
             The Case Files.
           </h1>
           <p className="mt-5 max-w-xl text-dossier-paper-dim">
-            Seventeen years of casework, filed the way I actually keep it — which is to
-            say, not very well. Pull a folder to read what I can tell you. Some of it
-            is still classified, for both our sakes.
+            Two decades of casework, seventeen files deep, kept the way I actually keep
+            it — which is to say, not very well. Pull a folder to read what I can tell
+            you. Some of it is still classified, for both our sakes.
           </p>
         </div>
 

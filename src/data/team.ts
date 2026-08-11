@@ -31,14 +31,14 @@ export const TEAM: TeamMember[] = [
     id: 'bob',
     name: 'Bob',
     role: 'Research & Lore, In-House',
-    bio: 'Lives in a skull on a shelf in my lab. Centuries of accumulated knowledge on spirits, curses, and things that go bump. Opinionated, a little lecherous, indispensable. Don’t let the empty eye sockets fool you.',
+    bio: 'Lives in a skull on a shelf in my lab. Millennia of accumulated knowledge on spirits, curses, and things that go bump. Opinionated, a little lecherous, indispensable. Don’t let the empty eye sockets fool you.',
     photo: bob,
   },
   {
     id: 'toot',
     name: 'Toot-toot',
     role: 'Commander, Unofficial Guard',
-    bio: 'Six inches tall, fiercely loyal, easily bribed with pizza. Technically a general now. Technically. He takes it very seriously, right up until the pizza arrives.',
+    bio: 'Six inches tall the day I met him, and he has not stopped growing since. Fiercely loyal, easily bribed with pizza, and technically a general these days. Technically. He takes it very seriously, right up until the pizza arrives.',
     photo: toot,
   },
   {

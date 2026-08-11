@@ -35,7 +35,7 @@ export default function Home() {
 
         <div className="relative mx-auto flex min-h-[78vh] max-w-6xl flex-col justify-end px-6 pb-16 pt-32">
           <div className="case-label mb-4 text-neon-accent">
-            Chicago, Illinois &middot; Est. Practice
+            Chicago, Illinois &middot; Private Practice
           </div>
           <h1 className="max-w-3xl font-display text-5xl font-bold leading-[0.95] text-dossier-paper sm:text-6xl md:text-7xl">
             Wizard&nbsp;for&nbsp;Hire.
@@ -93,10 +93,12 @@ export default function Home() {
       <section className="border-t border-dossier-rule/40 bg-dossier-ink py-16">
         <div className="mx-auto max-w-3xl px-6 text-center">
           <p className="font-display text-2xl text-dossier-paper sm:text-3xl">
-            &ldquo;I&rsquo;m under &lsquo;Wizards,&rsquo; there&rsquo;s
-            exactly one listing. That&rsquo;s not an accident.&rdquo;
+            There&rsquo;s exactly one listing under &lsquo;Wizards.&rsquo;
+            That&rsquo;s not an accident.
           </p>
-          <p className="case-label mt-6 text-dossier-amber">&mdash; H. Dresden</p>
+          <p className="case-label mt-6 text-dossier-amber">
+            Under &lsquo;Wizards&rsquo; &middot; Chicago
+          </p>
         </div>
       </section>
     </div>
